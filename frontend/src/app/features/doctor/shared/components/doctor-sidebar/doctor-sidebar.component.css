@@ -1,0 +1,197 @@
+.sidebar {
+    width: 220px;
+    background: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    color: #1f2937;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 100;
+    transition: transform 0.3s ease;
+    border-right: 1px solid #e5e7eb;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 1.5rem 1.25rem 1rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1f2937;
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+}
+
+.sidebar-header i {
+    font-size: 1.1rem;
+    color: #3b82f6;
+    flex-shrink: 0;
+}
+
+.sidebar-menu {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem 0.6rem;
+    gap: 0.15rem;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.menu-item:hover {
+    background: #e0e7ff;
+    color: #3b82f6;
+}
+
+.menu-item.active {
+    background: #dbeafe;
+    color: #3b82f6;
+}
+
+.menu-item i {
+    font-size: 0.9rem;
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.menu-item span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sidebar-footer {
+    padding: 1rem 0.6rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.signout-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: none;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    width: 100%;
+    transition: color 0.15s, background 0.15s;
+    white-space: nowrap;
+}
+
+.signout-btn:hover {
+    color: #dc2626;
+    background: #fee2e2;
+}
+
+/* ── MOBILE TOPBAR ── */
+.mobile-topbar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: #f8f9fa;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 1rem;
+    z-index: 200;
+    color: #1f2937;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.mobile-topbar .brand-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-left: 0.75rem;
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    color: #4b5563;
+    padding: 0.25rem;
+}
+
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 1200px) {
+    .sidebar {
+        width: 220px;
+    }
+
+    .menu-item {
+        padding: 0.6rem 0.7rem;
+        font-size: 0.8rem;
+    }
+
+    .menu-item i {
+        font-size: 0.85rem;
+    }
+
+    .sidebar-header {
+        padding: 1.25rem 1rem 0.9rem;
+        font-size: 1rem;
+    }
+
+    .signout-btn {
+        padding: 0.6rem 0.7rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 240px;
+        transform: translateX(-100%);
+        top: 56px;
+        height: calc(100vh - 56px);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .mobile-topbar {
+        display: flex;
+        z-index: 300;
+    }
+
+    .sidebar-overlay {
+        display: block;
+    }
+     .sidebar-header {
+        display: none;
+    }
+}

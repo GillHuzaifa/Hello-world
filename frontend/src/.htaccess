@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # --- Angular SPA Routing ---
+  # Note: HTTPS is handled by Hostinger's CDN/server. Do NOT add HTTPS redirect
+  # here as it causes a redirect loop (chrome-error://chromewebdata/).
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+
+</IfModule>

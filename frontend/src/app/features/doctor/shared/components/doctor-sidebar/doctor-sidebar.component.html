@@ -1,0 +1,43 @@
+<!-- MOBILE TOPBAR -->
+<div class="mobile-topbar">
+    <button class="hamburger" (click)="toggleSidebar()">
+        <i [ngClass]="sidebarOpen ? 'pi pi-times' : 'pi pi-bars'"></i>
+    </button>
+    <div class="brand-name">Doctor Portal</div>
+</div>
+
+<!-- SIDEBAR OVERLAY -->
+<div class="sidebar-overlay" *ngIf="sidebarOpen" (click)="toggleSidebar()"></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" [class.open]="sidebarOpen">
+    <div class="sidebar-header">
+        <i class="pi pi-heart-fill"></i>
+        <span>Doctor Portal</span>
+    </div>
+
+    <nav class="sidebar-menu">
+        <a [routerLink]="dashboardPath" routerLinkActive="active" class="menu-item"
+            [routerLinkActiveOptions]="{ exact: true }" (click)="sidebarOpen = false">
+            <i class="pi pi-th-large"></i>
+            <span>My Dashboard</span>
+        </a>
+        <a [routerLink]="ratingsPath" routerLinkActive="active" class="menu-item"
+            [routerLinkActiveOptions]="{ exact: false }" (click)="sidebarOpen = false">
+            <i class="pi pi-star-fill"></i>
+            <span>Patient Ratings</span>
+        </a>
+        <a [routerLink]="historyPath" routerLinkActive="active" class="menu-item"
+            [routerLinkActiveOptions]="{ exact: false }" (click)="sidebarOpen = false">
+            <i class="pi pi-history"></i>
+            <span>History</span>
+        </a>
+    </nav>
+
+    <div class="sidebar-footer">
+        <button class="signout-btn" (click)="signOut()">
+            <i class="pi pi-sign-out"></i>
+            <span>Sign Out</span>
+        </button>
+    </div>
+</aside>
